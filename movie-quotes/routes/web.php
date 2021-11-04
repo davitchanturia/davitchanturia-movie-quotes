@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MovieController::class, 'index']);
 
-Route::get('/movie', [MovieController::class, 'show']);
+Route::get('/{RandomMovie:slug}', [MovieController::class, 'show']);

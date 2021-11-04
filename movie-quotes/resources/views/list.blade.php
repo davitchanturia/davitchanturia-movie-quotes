@@ -3,11 +3,11 @@
     <section>
 
         <div class="max-w-md  m-auto">
-            <h1 class="mt-10 capitalize text-white">filmis satauri</h1>
+            <h1 class="mt-10 capitalize text-white"> {{ $RandomMovie->name }} </h1>
 
-            <x-card />
-            <x-card />
-            <x-card />
+            <x-card :title="$RandomMovie->quote->first()" />
+            <x-card :title="$RandomMovie->quote->first()" />
+            <x-card :title="$RandomMovie->quote->first()" />
         </div>
 
 

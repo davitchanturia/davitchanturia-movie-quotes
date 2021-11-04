@@ -16,8 +16,10 @@ class MovieController extends Controller
         ]);
     }
 
-    public function show()
+    public function show(Movie $RandomMovie)
     {
-        return view('list');
+        return view('list', [
+            'RandomMovie' => $RandomMovie,
+        ]);
     }
 }
