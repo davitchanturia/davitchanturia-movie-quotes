@@ -23,7 +23,7 @@
 
         @else   
      
-            <p class="text-center">no Movies yet, please check later</p>
+            <p class="text-center"> {{_('no Movies yet, please check later') }}</p>
      
         @endif
 
