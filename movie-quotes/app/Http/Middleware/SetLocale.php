@@ -14,7 +14,7 @@ class SetLocale
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         if (request('change_language')) {
             session()->put('language', request('change_language'));

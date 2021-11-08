@@ -1,9 +1,6 @@
 body{
     background-color: #3d3c3c;
 }
-#language{
-    position: fixed;
-    left: 25px;
-    top: 50%;
-    transform: translateY(-50%);
+.circle + .circle{
+    margin-top: 7px;
 }

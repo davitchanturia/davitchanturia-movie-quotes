@@ -1,4 +1,6 @@
-<div id="language" >
+<div id="language" 
+     class="fixed left-10 top-1/2 transform -translate-y-1/2"
+>
     
     @if (count(config('app.languages')) >1 )
     
