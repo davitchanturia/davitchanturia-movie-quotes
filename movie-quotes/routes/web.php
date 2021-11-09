@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MovieController::class, 'index']);
+Route::get('/', [MovieController::class, 'index']); // მთავარი გვერდი
 
-Route::get('/{RandomMovie:slug}', [MovieController::class, 'show']);
+Route::get('/{RandomMovie:slug}', [MovieController::class, 'show']);  // კონკრეტული ფილმის ციტატები
+
+Route::get('/admin/movie', [AdminController::class, 'index']);  // ადმინ პანელი
