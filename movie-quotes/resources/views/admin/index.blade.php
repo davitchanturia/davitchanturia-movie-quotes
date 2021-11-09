@@ -141,18 +141,18 @@
                       <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                           <tr>
-                            
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                              Title
-                            </th>
-                           
-                            <th scope="col" class="relative px-6 py-3">
-                              <span class="sr-only">Edit</span>
-                            </th>
 
-                            <th scope="col" class="relative px-6 py-3">
+                            <x-adminpanel.head class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Title
+                            </x-adminpanel.head>
+
+                            <x-adminpanel.head class="relative">
                                 <span class="sr-only">Delete</span>
-                            </th>
+                            </x-adminpanel.head>
+
+                            <x-adminpanel.head class="relative">
+                                <span class="sr-only">Delete</span>
+                            </x-adminpanel.head>
 
                           </tr>
                         </thead>
@@ -160,24 +160,23 @@
                         <tbody>
                             @foreach ($movie as $item)
                                 <tr class="bg-white">
-                                
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                       {{$item->name}}
-                                    </td>
-                                
-                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                       <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                     </td>
 
-                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                         <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-                                     </td>
+                                    <x-adminpanel.data>
+                                        {{$item->name}}
+                                    </x-adminpanel.data>
+                                
+                                    <x-adminpanel.data class="font-medium text-right">
+                                        <a href="#" class="text-green-600 hover:text-green-900">Edit</a>
+                                    </x-adminpanel.data>
+
+                                    <x-adminpanel.data class="font-medium text-right">
+                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
+                                    </x-adminpanel.data>
 
                                 </tr>
                             @endforeach
                             
               
-                          <!-- More people... -->
                         </tbody>
                       </table>
                     </div>
@@ -185,9 +184,6 @@
                 </div>
               </div>
   
-
-
-
 
           </div>
         </div>
