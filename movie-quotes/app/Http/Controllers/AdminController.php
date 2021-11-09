@@ -13,4 +13,9 @@ class AdminController extends Controller
             'movie' => Movie::get()
         ]);
     }
+
+    public function create()
+    {
+        return view('admin.create');
+    }
 }
