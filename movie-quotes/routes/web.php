@@ -21,5 +21,7 @@ Route::get('/{RandomMovie:slug}', [MovieController::class, 'show']);  // კო�
 
 //admin
 Route::get('/admin/movie', [AdminController::class, 'index']);  // ადმინ პანელი
-Route::post('/admin/movie', [AdminController::class, 'store']);  // ფილმის დამატება
 Route::get('/admin/movie/create', [AdminController::class, 'create']); // ადმინის მიერ ფილიმის დასამატებელი ფორმის გამოტანა
+Route::post('/admin/movie', [AdminController::class, 'store']);  // ფილმის დამატება
+
+Route::get('/admin/quote/create', [AdminController::class, 'QuoteCreate']);  //ციტატების დასამატებელი ფორის გამოტანა

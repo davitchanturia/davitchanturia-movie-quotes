@@ -17,7 +17,7 @@ class QuoteFactory extends Factory
         return [
             'movie_id' => Movie::factory(),
             'name' => $this->faker->sentence(),
-            'slug' => $this->faker->slug(),
+            'thumbnail' => $this->faker->sentence(),
         ];
     }
 }

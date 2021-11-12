@@ -21,7 +21,6 @@ class MovieFactory extends Factory
         return [
             'name' => $this->faker->sentence(),
             'slug' => $this->faker->slug(),
-            'thumbnail' => $this->faker->sentence(),
         ];
     }
 }

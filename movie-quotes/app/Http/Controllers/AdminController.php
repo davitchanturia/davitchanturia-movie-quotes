@@ -21,6 +21,11 @@ class AdminController extends Controller
         return view('admin.create');
     }
 
+    public function QuoteCreate()
+    {
+        return view ('admin.QuoteCreate');
+    }
+
     public function store(StoreMovieRequest $request)
     {
         $attributes = $request->validated();

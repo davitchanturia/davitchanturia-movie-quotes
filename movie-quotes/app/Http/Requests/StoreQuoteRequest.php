@@ -2,11 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Movie;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreMovieRequest extends FormRequest
+class StoreQuoteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,14 +27,8 @@ class StoreMovieRequest extends FormRequest
         $rules = [
             'name' => ['required'],
             // 'name' => ['required'],
-            // 'thumbnail'      => ['required', 'image'],
+            'thumbnail'      => ['required', 'image'],
             'slug'           => ['required', Rule::unique('movies', 'slug')],
         ];
-
-        foreach (config('app.available_locales') as $locale) {
-            $rules['name.' .$locale ] = 'string';
-        }
-
-        return $rules;
     }
 }

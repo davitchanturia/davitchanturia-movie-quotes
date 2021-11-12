@@ -17,9 +17,6 @@
 
               <x-form.label title="slug" />
               <x-form.input name="slug" />
-
-              <x-form.label title="Image" />
-              <x-form.input name="thumbnail" type="file" /> 
               
 
               {{-- // <x-form.label title="Title/ka" />
@@ -49,7 +46,7 @@
               
 
               
-              <x-form.button> public </x-form.button>
+              <x-form.button> add </x-form.button>
           </form>
       </div>
 
