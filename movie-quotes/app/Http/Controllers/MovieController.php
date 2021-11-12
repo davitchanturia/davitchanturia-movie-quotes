@@ -9,12 +9,15 @@ class MovieController extends Controller
 {
     public function index()
     {
+        $abc = Movie::inRandomOrder()->first();
+        // ddd($abc);
         return view('home', [
-            'RandomMovie' => Movie::inRandomOrder()->first(),
+            'RandomMovie' => $abc,
             'films' => Movie::all()
             
-        ]);
+        ])->with('quote');
     }
+
 
     public function show(Movie $RandomMovie)
     {

@@ -26,8 +26,8 @@ class StoreMovieRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name.en' => ['required'],
-            'name.ka' => ['required'],
+            'name' => ['required'],
+            // 'name' => ['required'],
             'thumbnail'      => ['required', 'image'],
             'slug'           => ['required', Rule::unique('movies', 'slug')],
         ];
