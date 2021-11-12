@@ -2,7 +2,7 @@
 
 <div>
 
-    <x-form.label name="{{$name}}"/>
+    {{-- <x-form.label name="{{$name}}"/> --}}
 
      <input type="{{$type}}" 
             name="{{$name}}" 

@@ -1,26 +1,61 @@
 <x-layout>
 
     <x-settings>
-     
-        <form action="/admin/posts" method="post" enctype="multipart/form-data"
-              class="border border-gray-200 p-6 rounded-xl mt-7 max-w-md m-auto">
-            @csrf
 
-   
-             <x-form.input name="title" />
-             <x-form.input name="slug" />
+      <div class="mt-10">
         
-             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-   
-   
-         {{-- button --}}
-         <x-form.button>public</x-form.button>
-  </form>
+        <x-adminpanel.heading> Create Movie </x-adminpanel.heading>
+        
+          <form action="/admin/movie" method="POST" enctype="multipart/form-data"
+                class="border border-gray-200 p-6 rounded-xl mt-7 max-w-md m-auto">
+              @csrf
 
+              @foreach (config('app.available_locales') as $item)
+                <x-form.label title="name[{{$item }}]" />
+                <x-form.input name="name[{{ $item }}]" />
+              @endforeach
+
+              <x-form.label title="slug" />
+              <x-form.input name="slug" />
+
+              <x-form.label title="Image" />
+              <x-form.input name="thumbnail" type="file" /> 
+              
+
+              {{-- // <x-form.label title="Title/ka" />
+              // <x-form.input name="name.ka"  />
+
+              // <x-form.label title="slug" />
+              // <x-form.input name="slug" />
+
+              // <x-form.label title="Image" />
+              // <x-form.input name="thumbnail" type="file" /> --}}
+
+             
+
+              {{-- <x-form.label title="en" />
+              <x-form.input name="first/en" /> 
+              
+              <x-form.label title="ka" />
+              <x-form.input name="first/ka" />  <br>
+
+              <x-form.label title="en" />
+              <x-form.input name="second/en" /> 
+
+              <x-form.label title="ka" />
+              <x-form.input name="second/ka" /> 
+               --}}
+
+              
+
+              
+              <x-form.button> public </x-form.button>
+          </form>
+      </div>
 
     </x-settings>
  
 </x-layout>
+
+
 

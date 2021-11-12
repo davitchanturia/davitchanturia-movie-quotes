@@ -11,7 +11,7 @@ class MovieFactory extends Factory
      * Define the model's default state.
      *
      * @return array
-     * 
+     *
      */
 
     protected $model = Movie::class;
@@ -21,7 +21,7 @@ class MovieFactory extends Factory
         return [
             'name' => $this->faker->sentence(),
             'slug' => $this->faker->slug(),
-            'image' => $this->faker->sentence(),
+            'thumbnail' => $this->faker->sentence(),
         ];
     }
 }

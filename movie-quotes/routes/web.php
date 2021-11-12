@@ -19,5 +19,7 @@ Route::get('/', [MovieController::class, 'index']); // მთავარი გ
 
 Route::get('/{RandomMovie:slug}', [MovieController::class, 'show']);  // კონკრეტული ფილმის ციტატები
 
+//admin
 Route::get('/admin/movie', [AdminController::class, 'index']);  // ადმინ პანელი
+Route::post('/admin/movie', [AdminController::class, 'store']);  // ფილმის დამატება
 Route::get('/admin/movie/create', [AdminController::class, 'create']); // ადმინის მიერ ფილიმის დასამატებელი ფორმის გამოტანა

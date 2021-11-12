@@ -4,10 +4,10 @@ return [
 
       //languages
 
-      'languages' => [
-        'en' => 'English',
-        'ka' => 'Georgian'
-    ],
+    //   'languages' => [
+    //     'en' => 'English',
+    //     'ka' => 'Georgian'
+    // ],
 
 
 
@@ -88,6 +88,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
+
+    'available_locales' => ['en', 'ka'],
 
     'locale' => 'en',
 

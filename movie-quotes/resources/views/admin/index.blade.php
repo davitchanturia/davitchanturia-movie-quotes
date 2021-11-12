@@ -6,14 +6,13 @@
         <main class="flex-1">
   
           <div class="py-6">
-            <div class="max-w-7xl mx-auto mt-5 px-4 sm:px-6 md:px-8">
-              <h1 class="text-2xl font-semibold text-gray-900">Manage Movies</h1>
-            </div>
+            
+            <x-adminpanel.heading> Manage Movies </x-adminpanel.heading>
   
             <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
   
-              <!-- This example requires Tailwind CSS v2.0+ -->
                <div class="flex flex-col">
+                 
                   <div class="mt-5 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -61,9 +60,8 @@
                       </div>
                     </div>
                   </div>
+
                 </div>
-    
-  
             </div>
           </div>
         </main>
