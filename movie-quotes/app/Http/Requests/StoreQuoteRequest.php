@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Movie;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -28,7 +29,16 @@ class StoreQuoteRequest extends FormRequest
             'name' => ['required'],
             // 'name' => ['required'],
             'thumbnail'      => ['required', 'image'],
-            'slug'           => ['required', Rule::unique('movies', 'slug')],
+            'movie_id'  => ['required', Rule::exists('movies', 'id')]
         ];
+
+        
+        foreach (config('app.available_locales') as $locale) {
+            $rules['name.' .$locale ] = 'string';
+        }
+        
+        return $rules;
+
+        // dd($rules);
     }
 }

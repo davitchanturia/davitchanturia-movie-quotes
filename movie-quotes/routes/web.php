@@ -25,3 +25,4 @@ Route::get('/admin/movie/create', [AdminController::class, 'create']); // ად
 Route::post('/admin/movie', [AdminController::class, 'store']);  // ფილმის დამატება
 
 Route::get('/admin/quote/create', [AdminController::class, 'QuoteCreate']);  //ციტატების დასამატებელი ფორის გამოტანა
+Route::post('/admin/quote/create', [AdminController::class, 'StoreQuote']);  //ციტატის შექმნა

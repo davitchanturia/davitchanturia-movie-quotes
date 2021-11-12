@@ -6,7 +6,7 @@
         
         <x-adminpanel.heading> Create Quote </x-adminpanel.heading>
         
-            <form action="/admin/quote" method="POST" enctype="multipart/form-data"
+            <form action="/admin/quote/create" method="POST" enctype="multipart/form-data"
                 class="border border-gray-200 p-6 rounded-xl mt-7 max-w-md m-auto">
                 @csrf
 
@@ -25,7 +25,7 @@
                 <select name="movie_id" id="movie" class="max-w-sm">
                     
                     @php
-                       $films = App\Models\Movie::all()
+                       $films = \App\Models\Movie::all()
                     @endphp
                                        
                     @foreach ($films as $film)
@@ -34,7 +34,7 @@
                                 {{ old('movie_id') == $film->id ? 'selected' : '' }}
 
                             {{ $film->name }}
-                            
+
                         </option>
                     @endforeach  
 
