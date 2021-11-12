@@ -8,6 +8,11 @@
                
                 <nav class="mt-5 flex-1 px-2 space-y-1">           
 
+                  <a href="/"
+                    class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                    Home Page
+                  </a>
+
                   <a href="/admin/movie"
                     class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                     Dashboard

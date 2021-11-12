@@ -26,3 +26,5 @@ Route::post('/admin/movie', [AdminController::class, 'store']);  // ფილმ
 
 Route::get('/admin/quote/create', [AdminController::class, 'QuoteCreate']);  //ციტატების დასამატებელი ფორის გამოტანა
 Route::post('/admin/quote/create', [AdminController::class, 'StoreQuote']);  //ციტატის შექმნა
+
+Route::delete('admin/movie/{movie}', [AdminController::class, 'MovieDestroy']);  //ფილმის წაშლა

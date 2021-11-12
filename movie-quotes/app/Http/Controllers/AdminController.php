@@ -39,13 +39,22 @@ class AdminController extends Controller
 
     public function StoreQuote(StoreQuoteRequest $request)
     {
-        // dd($request);
-
         $attr = $request->validated();
 
         $attr['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
         Quote::create($attr);
         
+        return redirect('/admin/movie');
+    }
+
+    public function MovieDestroy(Movie $movie)
+    {
+        // dd($movie);
+        // $movie->delete();
+
+        // dd($movie);
+        Quote::all()->where('movie_id', $movie->id)->delete();
+
         return redirect('/admin/movie');
     }
 

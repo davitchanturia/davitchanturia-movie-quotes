@@ -48,7 +48,13 @@
                                       </x-adminpanel.data>
   
                                       <x-adminpanel.data class="font-medium text-right">
-                                          <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
+                                        <form action="/admin/movie/{{$item->id}}" method="post">
+                                          @csrf
+                                          @method('DELETE')
+
+                                          <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
+                                        </form>
+                                          {{-- <a href="/admin/movie/{{$item->slug}}" class="text-red-600 hover:text-red-900">Delete</a> --}}
                                       </x-adminpanel.data>
   
                                   </tr>
