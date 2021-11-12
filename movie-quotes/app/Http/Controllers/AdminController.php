@@ -7,6 +7,7 @@ use App\Http\Requests\StoreQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
@@ -50,10 +51,16 @@ class AdminController extends Controller
     public function MovieDestroy(Movie $movie)
     {
         // dd($movie);
-        // $movie->delete();
+        $movie->delete();
 
-        // dd($movie);
-        Quote::all()->where('movie_id', $movie->id)->delete();
+        // $a = Quote::all();
+        // ddd($a);
+        // dd(is_array($a));
+        
+        $a = DB::table('quotes')->where('movie_id', $movie->id);
+
+        $a->delete();
+        
 
         return redirect('/admin/movie');
     }
