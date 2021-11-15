@@ -34,7 +34,7 @@
                                     </x-adminpanel.data>
 
                                       <x-adminpanel.data class="font-medium text-right">
-                                          <a href="#" class="text-green-600 hover:text-green-900">Edit</a>
+                                          <a href="{{ route('quote.edit', [$item->id]) }}" class="text-green-600 hover:text-green-900">Edit</a>
                                       </x-adminpanel.data>
   
                                       <x-adminpanel.data class="font-medium text-right">

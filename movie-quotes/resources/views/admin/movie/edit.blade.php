@@ -5,7 +5,7 @@
         {{-- @dd($movie->name) --}}
       <div class="mt-10">
         
-        <x-adminpanel.heading> Create Movie </x-adminpanel.heading>
+        <x-adminpanel.heading> Edit Movie </x-adminpanel.heading>
         
           <form action="{{ route('movie.update', [$movie->id]) }}" method="POST" enctype="multipart/form-data"
                 class="border border-gray-200 p-6 rounded-xl mt-7 max-w-md m-auto">

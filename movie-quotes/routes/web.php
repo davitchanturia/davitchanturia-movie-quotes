@@ -33,6 +33,7 @@ Route::delete('admin/movie/{movie}', [AdminController::class, 'MovieDestroy'])->
 Route::delete('admin/quote/{quote}', [AdminController::class, 'QuoteDestroy'])->name('quote.delete');  //ციტატის წაშლა
 
 Route::get('admin/movie/edit/{movie}', [AdminController::class, 'MovieEdit'])->name('movie.edit');  //ფილმის დაედითება
+Route::get('admin/quote/edit/{quote}', [AdminController::class, 'QuoteEdit'])->name('quote.edit'); //ციტატის დაედითება
 
-
-Route::patch('admin/movie/update/{movie}', [AdminController::class, 'MovieUpdate'])->name('movie.update');
+Route::patch('admin/movie/update/{movie}', [AdminController::class, 'MovieUpdate'])->name('movie.update');  // ფილმის განახლება
+Route::patch('admin/quote/update/{quote}', [AdminController::class, 'QuoteUpdate'])->name('quote.update');  //ციტატის განახლება

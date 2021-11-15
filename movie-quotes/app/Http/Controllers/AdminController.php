@@ -88,6 +88,13 @@ class AdminController extends Controller
         return view('admin.movie.edit', ['movie' => $movie]);
     }
 
+    //ციტატის დაედითება
+    public function QuoteEdit(Quote $quote)
+    {
+        return view('admin.quote.edit', ['quote' => $quote]);
+    }
+
+    //ფილმის განახლება
     public function MovieUpdate(StoreMovieRequest $request, Movie $movie)
     {
         $attributes = $request->validated();
@@ -96,5 +103,17 @@ class AdminController extends Controller
         
         
         return redirect(route('admin.movies'));
+    }
+
+    // ციტატის განახლება
+    public function QuoteUpdate(StoreQuoteRequest $request, Quote $quote)
+    {
+        // dd('sadads');
+        $attributes = $request->validated();
+
+        $quote->update($attributes);
+        
+        
+        return redirect(route('admin.quotes'));
     }
 }
