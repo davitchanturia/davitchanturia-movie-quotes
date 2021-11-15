@@ -6,34 +6,28 @@
             <div class="flex-1 flex flex-col min-h-0 bg-indigo-700">
               <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                
-                <nav class="mt-5 flex-1 px-2 space-y-1">           
+                <nav class="mt-5 flex-1 px-2 space-y-1">    
+                  
+                  <x-adminpanel.nav-item link="{{ route('homepage') }}">
+                    Main Page
+                  </x-adminpanel.nav-item>
 
-                  <a href="{{ route('homepage') }}"
-                    class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
-                    Home Page
-                  </a>
-
-                  <a href="{{ route('admin.movies') }}"
-                    class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                  <x-adminpanel.nav-item link="{{ route('admin.movies') }}">
                     Movie Dashboard
-                  </a>
+                  </x-adminpanel.nav-item>
 
-                  <a href="{{ route('admin.quotes') }}"
-                    class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                  <x-adminpanel.nav-item link="{{ route('admin.quotes') }}">
                     Quote Dashboard
-                  </a>
+                  </x-adminpanel.nav-item>
 
-                  <a href="{{ route('movie.create') }}"
-                    class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                  <x-adminpanel.nav-item link="{{ route('movie.create') }}">
                     New Movie
-                  </a>
+                  </x-adminpanel.nav-item>
 
-                  <a href="{{ route('quote.create') }}"
-                    class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                  <x-adminpanel.nav-item link="{{ route('quote.create') }}">
                     New Quote
-                  </a>
+                  </x-adminpanel.nav-item>
                  
-                
                 </nav>
       
               </div>
