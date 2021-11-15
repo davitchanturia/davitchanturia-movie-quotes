@@ -18,14 +18,19 @@
                     Movie Dashboard
                   </a>
 
+                  <a href="{{ route('admin.quotes') }}"
+                    class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                    Quote Dashboard
+                  </a>
+
                   <a href="{{ route('movie.create') }}"
                     class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
-                    Create Movie
+                    New Movie
                   </a>
 
                   <a href="{{ route('quote.create') }}"
                     class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
-                    Create Quote
+                    New Quote
                   </a>
                  
                 

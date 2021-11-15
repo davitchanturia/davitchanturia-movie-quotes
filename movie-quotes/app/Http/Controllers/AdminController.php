@@ -12,23 +12,35 @@ use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
+    // ფილმების დაშბორდი
     public function index()
     {
         return view('admin.index', [
             'movie' => Movie::get()
         ]);
     }
-
+    
+    // ციტატების დაშბოროდი
+    public function QuoteIndex()
+    {
+        return view('admin.QuoteIndex', [
+            'quote' => Quote::get()
+        ]);
+    }
+    
+    //ფილმის დასამატებელი ფორმა
     public function create()
     {
         return view('admin.create');
     }
 
+    // ციტატის დასამატებელი ფორმა
     public function QuoteCreate()
     {
         return view('admin.QuoteCreate');
     }
 
+    //ფილმის დამატება ბაზაში
     public function store(StoreMovieRequest $request)
     {
         $attributes = $request->validated();
@@ -38,6 +50,7 @@ class AdminController extends Controller
         return redirect(route('admin.movies'));
     }
 
+    //ციტატის დამატება ბაზაში
     public function StoreQuote(StoreQuoteRequest $request)
     {
         $attr = $request->validated();
@@ -48,14 +61,10 @@ class AdminController extends Controller
         return redirect(route('admin.movies'));
     }
 
+    //ფილმის წაშლა
     public function MovieDestroy(Movie $movie)
     {
-        // dd($movie);
         $movie->delete();
-
-        // $a = Quote::all();
-        // ddd($a);
-        // dd(is_array($a));
         
         $a = DB::table('quotes')->where('movie_id', $movie->id);
 
@@ -65,18 +74,11 @@ class AdminController extends Controller
         return redirect(route('admin.movies'));
     }
 
-    
-    // protected function ValidateMovie(?Movie $movie = null): array
-    // {
-    //     $movie = new Movie();
+    //ციტატის წაშლა
+    public function QuoteDestroy(Quote $quote, Movie $movie)
+    {
+        $quote->delete();
 
-    //     $attributes = request()->validate([
-    //         'name.en' => ['required'],
-    //         'name.ka' => ['required'],
-    //         'thumbnail'      => $movie->exists() ? ['image'] : ['required', 'image'],
-    //         'slug'           => ['required', Rule::unique('movies', 'slug')->ignore($movie->id)],
-    //     ]);
-
-    //     return $attributes;
-    // }
+        return redirect(route('admin.quotes'));
+    }
 }

@@ -18,34 +18,6 @@
               <x-form.label title="slug" />
               <x-form.input name="slug" />
               
-
-              {{-- // <x-form.label title="Title/ka" />
-              // <x-form.input name="name.ka"  />
-
-              // <x-form.label title="slug" />
-              // <x-form.input name="slug" />
-
-              // <x-form.label title="Image" />
-              // <x-form.input name="thumbnail" type="file" /> --}}
-
-             
-
-              {{-- <x-form.label title="en" />
-              <x-form.input name="first/en" /> 
-              
-              <x-form.label title="ka" />
-              <x-form.input name="first/ka" />  <br>
-
-              <x-form.label title="en" />
-              <x-form.input name="second/en" /> 
-
-              <x-form.label title="ka" />
-              <x-form.input name="second/ka" /> 
-               --}}
-
-              
-
-              
               <x-form.button> add </x-form.button>
           </form>
       </div>
