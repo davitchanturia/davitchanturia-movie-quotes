@@ -8,23 +8,23 @@
                
                 <nav class="mt-5 flex-1 px-2 space-y-1">    
                   
-                  <x-adminpanel.nav-item link="{{ route('homepage') }}">
+                  <x-adminpanel.nav-item :link="route('homepage')">
                     Main Page
                   </x-adminpanel.nav-item>
 
-                  <x-adminpanel.nav-item link="{{ route('admin.movies') }}">
+                  <x-adminpanel.nav-item :link="route('admin.movies')">
                     Movie Dashboard
                   </x-adminpanel.nav-item>
 
-                  <x-adminpanel.nav-item link="{{ route('admin.quotes') }}">
+                  <x-adminpanel.nav-item :link="route('admin.quotes')">
                     Quote Dashboard
                   </x-adminpanel.nav-item>
 
-                  <x-adminpanel.nav-item link="{{ route('movie.create') }}">
+                  <x-adminpanel.nav-item :link="route('movie.create')">
                     New Movie
                   </x-adminpanel.nav-item>
 
-                  <x-adminpanel.nav-item link="{{ route('quote.create') }}">
+                  <x-adminpanel.nav-item :link="route('quote.create')">
                     New Quote
                   </x-adminpanel.nav-item>
                  
