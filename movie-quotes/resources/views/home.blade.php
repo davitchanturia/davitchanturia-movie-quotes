@@ -14,7 +14,7 @@
                          <div class="pt-9">
                         <h1 class="text-center text-white text-xl"> {{$RandomMovie->quote->first()->getTranslation('name', 'en')}}  </h1>
                     
-                        <a class="block text-center text-white mt-10 underline" href="/{{$RandomMovie->slug}}"> {{ $RandomMovie->getTranslation('name', 'en')}} </a>
+                        <a class="block text-center text-white mt-10 underline" href="{{ route('list', [$RandomMovie->slug]) }}"> {{ $RandomMovie->getTranslation('name', 'en')}} </a>
                     </div>
                 </div>
             </div>

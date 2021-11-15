@@ -35,7 +35,7 @@ class AdminController extends Controller
 
         Movie::create($attributes);
         
-        return redirect('/admin/movie');
+        return redirect(route('admin.movies'));
     }
 
     public function StoreQuote(StoreQuoteRequest $request)
@@ -45,7 +45,7 @@ class AdminController extends Controller
         $attr['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
         Quote::create($attr);
         
-        return redirect('/admin/movie');
+        return redirect(route('admin.movies'));
     }
 
     public function MovieDestroy(Movie $movie)
@@ -62,7 +62,7 @@ class AdminController extends Controller
         $a->delete();
         
 
-        return redirect('/admin/movie');
+        return redirect(route('admin.movies'));
     }
 
     

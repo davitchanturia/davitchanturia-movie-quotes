@@ -6,7 +6,7 @@
         
         <x-adminpanel.heading> Create Movie </x-adminpanel.heading>
         
-          <form action="/admin/movie" method="POST" enctype="multipart/form-data"
+          <form action="{{ route('movie.store') }}" method="POST" enctype="multipart/form-data"
                 class="border border-gray-200 p-6 rounded-xl mt-7 max-w-md m-auto">
               @csrf
 

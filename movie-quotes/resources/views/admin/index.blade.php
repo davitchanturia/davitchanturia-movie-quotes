@@ -17,23 +17,8 @@
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
-                          <thead class="bg-gray-50">
-                            <tr>
-  
-                              <x-adminpanel.head class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                  Title
-                              </x-adminpanel.head>
-  
-                              <x-adminpanel.head class="relative">
-                                  <span class="sr-only">Delete</span>
-                              </x-adminpanel.head>
-  
-                              <x-adminpanel.head class="relative">
-                                  <span class="sr-only">Delete</span>
-                              </x-adminpanel.head>
-  
-                            </tr>
-                          </thead>
+
+                          <x-adminpanel.thead />
   
                           <tbody>
                               @foreach ($movie as $item)
@@ -48,7 +33,7 @@
                                       </x-adminpanel.data>
   
                                       <x-adminpanel.data class="font-medium text-right">
-                                        <form action="/admin/movie/{{$item->id}}" method="post">
+                                        <form action="{{ route('movie.delete', [$item->id]) }} " method="post">
                                           @csrf
                                           @method('DELETE')
 
@@ -62,6 +47,7 @@
                               
                 
                           </tbody>
+
                         </table>
                       </div>
                     </div>
@@ -69,7 +55,9 @@
 
                 </div>
             </div>
+            
           </div>
+
         </main>
       </div>
     </x-settings>

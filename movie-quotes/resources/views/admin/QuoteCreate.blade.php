@@ -6,7 +6,7 @@
         
         <x-adminpanel.heading> Create Quote </x-adminpanel.heading>
         
-            <form action="/admin/quote/create" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('quote.store') }}" method="POST" enctype="multipart/form-data"
                 class="border border-gray-200 p-6 rounded-xl mt-7 max-w-md m-auto">
                 @csrf
 

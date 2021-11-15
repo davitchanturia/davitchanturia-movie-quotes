@@ -3,7 +3,7 @@
     <section>
 
         <div class="mt-10 ml-10">
-            <a href="/" class="text-white capitalize " >go back</a>
+            <a href="{{ route('homepage') }}" class="text-white capitalize ">go back</a>
         </div>
 
         <div class="max-w-md  m-auto">

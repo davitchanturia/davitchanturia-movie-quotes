@@ -8,22 +8,22 @@
                
                 <nav class="mt-5 flex-1 px-2 space-y-1">           
 
-                  <a href="/"
+                  <a href="{{ route('homepage') }}"
                     class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                     Home Page
                   </a>
 
-                  <a href="/admin/movie"
+                  <a href="{{ route('admin.movies') }}"
                     class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
-                    Dashboard
+                    Movie Dashboard
                   </a>
 
-                  <a href="/admin/movie/create"
+                  <a href="{{ route('movie.create') }}"
                     class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                     Create Movie
                   </a>
 
-                  <a href="/admin/quote/create"
+                  <a href="{{ route('quote.create') }}"
                     class="text-white hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                     Create Quote
                   </a>
