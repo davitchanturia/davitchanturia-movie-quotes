@@ -34,7 +34,6 @@
                                 {{ old('movie_id') == $film->id ? 'selected' : '' }}
 
                             {{ $film->name }}
-
                         </option>
                     @endforeach  
 

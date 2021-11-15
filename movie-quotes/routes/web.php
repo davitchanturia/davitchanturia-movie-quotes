@@ -31,3 +31,8 @@ Route::post('/admin/quote/create', [AdminController::class, 'StoreQuote'])->name
 
 Route::delete('admin/movie/{movie}', [AdminController::class, 'MovieDestroy'])->name('movie.delete');  //ფილმის წაშლა
 Route::delete('admin/quote/{quote}', [AdminController::class, 'QuoteDestroy'])->name('quote.delete');  //ციტატის წაშლა
+
+Route::get('admin/movie/edit/{movie}', [AdminController::class, 'MovieEdit'])->name('movie.edit');  //ფილმის დაედითება
+
+
+Route::patch('admin/movie/update/{movie}', [AdminController::class, 'MovieUpdate'])->name('movie.update');

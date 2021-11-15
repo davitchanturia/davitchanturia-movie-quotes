@@ -27,7 +27,6 @@ class StoreQuoteRequest extends FormRequest
     {
         $rules = [
             'name' => ['required'],
-            // 'name' => ['required'],
             'thumbnail'      => ['required', 'image'],
             'movie_id'  => ['required', Rule::exists('movies', 'id')]
         ];
@@ -38,7 +37,5 @@ class StoreQuoteRequest extends FormRequest
         }
         
         return $rules;
-
-        // dd($rules);
     }
 }

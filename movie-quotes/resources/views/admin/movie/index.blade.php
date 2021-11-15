@@ -29,7 +29,7 @@
                                       </x-adminpanel.data>
                                   
                                       <x-adminpanel.data class="font-medium text-right">
-                                          <a href="#" class="text-green-600 hover:text-green-900">Edit</a>
+                                          <a href="{{ route('movie.edit', [$item->id]) }}" class="text-green-600 hover:text-green-900">Edit</a>
                                       </x-adminpanel.data>
   
                                       <x-adminpanel.data class="font-medium text-right">
@@ -39,7 +39,6 @@
 
                                           <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
                                         </form>
-                                          {{-- <a href="/admin/movie/{{$item->slug}}" class="text-red-600 hover:text-red-900">Delete</a> --}}
                                       </x-adminpanel.data>
   
                                   </tr>

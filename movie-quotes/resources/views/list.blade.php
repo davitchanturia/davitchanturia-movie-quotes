@@ -10,7 +10,8 @@
 
             <h1 class="mt-10 capitalize text-white"> {{ $RandomMovie->name }} </h1>
             @foreach ($RandomMovie->quote as $item)
-                <x-card :title="$item->name" />
+                <x-card :title="$item->name" 
+                        :foto="asset('storage/'. $RandomMovie->quote->first()->thumbnail)" />
             @endforeach
             
           

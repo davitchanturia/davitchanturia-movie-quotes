@@ -15,7 +15,7 @@ class AdminController extends Controller
     // ფილმების დაშბორდი
     public function index()
     {
-        return view('admin.index', [
+        return view('admin.movie.index', [
             'movie' => Movie::get()
         ]);
     }
@@ -23,7 +23,7 @@ class AdminController extends Controller
     // ციტატების დაშბოროდი
     public function QuoteIndex()
     {
-        return view('admin.QuoteIndex', [
+        return view('admin.quote.index', [
             'quote' => Quote::get()
         ]);
     }
@@ -31,13 +31,13 @@ class AdminController extends Controller
     //ფილმის დასამატებელი ფორმა
     public function create()
     {
-        return view('admin.create');
+        return view('admin.movie.create');
     }
 
     // ციტატის დასამატებელი ფორმა
     public function QuoteCreate()
     {
-        return view('admin.QuoteCreate');
+        return view('admin.quote.create');
     }
 
     //ფილმის დამატება ბაზაში
@@ -80,5 +80,21 @@ class AdminController extends Controller
         $quote->delete();
 
         return redirect(route('admin.quotes'));
+    }
+
+    //ფილმის დაედითება
+    public function MovieEdit(Movie $movie)
+    {
+        return view('admin.movie.edit', ['movie' => $movie]);
+    }
+
+    public function MovieUpdate(StoreMovieRequest $request, Movie $movie)
+    {
+        $attributes = $request->validated();
+
+        $movie->update($attributes);
+        
+        
+        return redirect(route('admin.movies'));
     }
 }

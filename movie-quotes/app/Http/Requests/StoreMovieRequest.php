@@ -23,13 +23,17 @@ class StoreMovieRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(?Movie $movie = null)
     {
+
+        //პარამეტრად ვატანთ ნოლს მაგრამ თუ გადავცემთ პარამეტრს მეთოდის გამოძახებისას
+        //მიენიჭება გადაცემული მნიშვნელობა მაგრამ თუ არ გადავცემთ შექმნის ახალ პოსტს
+
+        $movie ??= new Movie();
+        
         $rules = [
             'name' => ['required'],
-            // 'name' => ['required'],
-            // 'thumbnail'      => ['required', 'image'],
-            'slug'           => ['required', Rule::unique('movies', 'slug')],
+            'slug'           => $movie->exists() ? ['required'] : ['required', Rule::unique('movies', 'slug')],
         ];
 
         foreach (config('app.available_locales') as $locale) {
