@@ -32,7 +32,7 @@ class StoreQuoteRequest extends FormRequest
         $rules = [
             'name' => ['required'],
             'thumbnail'      => $quote->exists() ? ['image'] : ['required', 'image'],
-            
+            'movie_id'  =>  $quote->doesntExist() ? ['required', Rule::exists('quotes', 'id')] : []
         ];
         // dd($request);
 

@@ -58,7 +58,7 @@ class AdminController extends Controller
         $attr['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
         Quote::create($attr);
         
-        return redirect(route('admin.movies'));
+        return redirect(route('admin.quotes'));
     }
 
     //ფილმის წაშლა
@@ -118,4 +118,4 @@ class AdminController extends Controller
     }
 }
 
-// 
+//
