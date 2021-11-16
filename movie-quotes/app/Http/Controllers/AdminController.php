@@ -79,6 +79,14 @@ class AdminController extends Controller
     {
         $quote->delete();
 
+        // $movie = DB::table('movies')->where('id', $quote->movie_id);
+
+        
+
+        // if ($movie->count = 1) {
+        //     $movie->delete();
+        // }
+        
         return redirect(route('admin.quotes'));
     }
 
@@ -110,6 +118,10 @@ class AdminController extends Controller
     {
         // dd('sadads');
         $attrs = $request->validated();
+
+        if (isset($attrs['thumbnail'])) {
+            $attrs['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        }
 
         $quote->update($attrs);
         

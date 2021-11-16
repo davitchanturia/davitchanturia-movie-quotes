@@ -23,7 +23,7 @@
                           <tbody>
                               @foreach ($movie as $item)
                                   <tr class="bg-white">
-  
+
                                       <x-adminpanel.data>
                                           {{$item->name}}
                                       </x-adminpanel.data>
