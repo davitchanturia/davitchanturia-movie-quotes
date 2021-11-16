@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LangController;
 use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +38,6 @@ Route::get('admin/quote/edit/{quote}', [AdminController::class, 'QuoteEdit'])->n
 
 Route::patch('admin/movie/update/{movie}', [AdminController::class, 'MovieUpdate'])->name('movie.update');  // ფილმის განახლება
 Route::patch('admin/quote/update/{quote}', [AdminController::class, 'QuoteUpdate'])->name('quote.update');  //ციტატის განახლება
+
+
+// Route::get('lang/{lang}', [LangController::class, 'change'])->name('language.switch');  //ენის ცვლილება

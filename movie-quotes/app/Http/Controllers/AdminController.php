@@ -75,7 +75,7 @@ class AdminController extends Controller
     }
 
     //ციტატის წაშლა
-    public function QuoteDestroy(Quote $quote, Movie $movie)
+    public function QuoteDestroy(Quote $quote)
     {
         $quote->delete();
 
@@ -109,11 +109,13 @@ class AdminController extends Controller
     public function QuoteUpdate(StoreQuoteRequest $request, Quote $quote)
     {
         // dd('sadads');
-        $attributes = $request->validated();
+        $attrs = $request->validated();
 
-        $quote->update($attributes);
+        $quote->update($attrs);
         
         
         return redirect(route('admin.quotes'));
     }
 }
+
+// 

@@ -2,7 +2,6 @@
 
     <x-settings>
 
-        {{-- @dd($movie->name) --}}
       <div class="mt-10">
         
         <x-adminpanel.heading> Edit Movie </x-adminpanel.heading>
@@ -11,7 +10,6 @@
                 class="border border-gray-200 p-6 rounded-xl mt-7 max-w-md m-auto">
               @csrf
               @method('PATCH')
-              
 
               @foreach (config('app.available_locales') as $item)
                 <x-form.label title="name[{{$item }}]" />

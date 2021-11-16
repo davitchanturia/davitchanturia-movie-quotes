@@ -2,18 +2,21 @@
      class="fixed left-10 top-1/2 transform -translate-y-1/2"
 >
     
-    @if (count(config('app.available_locales')) >1 )
+    @if (count(config('app.available_locales')) > 1 )
     
-        @foreach (config('app.available_locales') as $langLocale )
+        @foreach (Config::get('app.available_locales') as $lang )
         
-            <x-circle link="{{ url()->current() }}?change_language={{ $langLocale }}"> 
-               {{$langLocale}} 
-            </x-circle>
+            {{-- <x-circle :link="route('language.switch', [$lang])"> 
+               {{$lang}} 
+            </x-circle>  --}}
+
+            <x-circle link="/?change_language={{$lang}}"> 
+                {{$lang}} 
+            </x-circle> 
 
         @endforeach
 
     @endif
 
-    {{-- <x-circle>EN</x-circle>
-    <x-circle class="mt-3">GE</x-circle> --}}
 </div>
+

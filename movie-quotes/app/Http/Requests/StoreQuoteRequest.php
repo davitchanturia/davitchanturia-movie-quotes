@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class StoreQuoteRequest extends FormRequest
 {
@@ -24,15 +24,17 @@ class StoreQuoteRequest extends FormRequest
      *
      * @return array
      */
-    public function rules(?Quote $quote = null)
+    public function rules(?Quote $quote = null, Request $request)
     {
+        // dd('sddas');
         $quote ??= new Quote();
 
         $rules = [
             'name' => ['required'],
             'thumbnail'      => $quote->exists() ? ['image'] : ['required', 'image'],
-            'movie_id'  => ['required', Rule::exists('movies', 'id')]
+            
         ];
+        // dd($request);
 
         foreach (config('app.available_locales') as $locale) {
             $rules['name.' .$locale ] = 'string';

@@ -2,6 +2,9 @@
 
     <section>
 
+        @php
+            $local = App::getLocale()
+        @endphp
 
          {{-- if პირობით ვამოწმებთ თუ არის ბაზაში ერთი ფილმი მაინც --}}
         @if ($films->count())
@@ -14,9 +17,9 @@
                     >
 
                     <div class="pt-9">
-                        <h1 class="text-center text-white text-xl"> {{$RandomMovie->quote->first()->getTranslation('name', 'en')}}  </h1>
+                        <h1 class="text-center text-white text-xl"> {{$RandomMovie->quote->first()->getTranslation('name', $local )}}  </h1>
                 
-                        <a class="block text-center text-white mt-10 underline" href="{{ route('list', [$RandomMovie->slug]) }}"> {{ $RandomMovie->getTranslation('name', 'en')}} </a>
+                        <a class="block text-center text-white mt-10 underline" href="{{ route('list', [$RandomMovie->slug]) }}"> {{ $RandomMovie->getTranslation('name', $local )}} </a>
                     </div>
 
                 </div>
