@@ -128,6 +128,12 @@ class AdminController extends Controller
         
         return redirect(route('admin.quotes'));
     }
+
+    // admin login
+    public function ShowLogin()
+    {
+        return view('admin.login.login');
+    }
 }
 
 //
