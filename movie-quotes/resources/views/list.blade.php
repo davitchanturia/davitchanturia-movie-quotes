@@ -15,7 +15,7 @@
             <h1 class="mt-10 capitalize text-white"> {{ $RandomMovie->getTranslation('name', $local )}} </h1>
             @foreach ($RandomMovie->quote as $item)
                 <x-card :title="$item->name" 
-                        :foto="asset('storage/'. $RandomMovie->quote->first()->thumbnail)" />
+                        :foto="asset('storage/'. $item->thumbnail)" />
             @endforeach
             
           
