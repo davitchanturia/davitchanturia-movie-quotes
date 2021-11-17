@@ -4,7 +4,7 @@
 
         @php
             $local = App::getLocale()
-            // $rand = Arr::random($RandomMovie->quote)
+
         @endphp
 
          {{-- if პირობით ვამოწმებთ თუ არის ბაზაში ერთი ფილმი მაინც --}}
