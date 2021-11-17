@@ -4,20 +4,22 @@
 
         @php
             $local = App::getLocale()
+            // $rand = Arr::random($RandomMovie->quote)
         @endphp
 
          {{-- if პირობით ვამოწმებთ თუ არის ბაზაში ერთი ფილმი მაინც --}}
         @if ($films->count())
    
+        {{-- @dd($RandomMovie->quote->random()) --}}
         <div class="w-2/4 h-screen m-auto justify-center align-middle">
                 <div id="card" class="w-3/5 m-auto pt-32">
                     
                     <img class="w-full h-64 rounded-md object-cover" alt=""
-                        src="{{ asset('storage/'. $RandomMovie->quote->first()->thumbnail) }}"
+                        src="{{ asset('storage/'. $relQuote->thumbnail) }}"
                     >
 
                     <div class="pt-9">
-                        <h1 class="text-center text-white text-xl"> {{$RandomMovie->quote->first()->getTranslation('name', $local )}}  </h1>
+                        <h1 class="text-center text-white text-xl"> {{$relQuote->getTranslation('name', $local )}}  </h1>
                 
                         <a class="block text-center text-white mt-10 underline" href="{{ route('list', [$RandomMovie->slug]) }}"> {{ $RandomMovie->getTranslation('name', $local )}} </a>
                     </div>

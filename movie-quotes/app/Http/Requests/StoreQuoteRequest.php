@@ -6,6 +6,7 @@ use App\Models\Quote;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class StoreQuoteRequest extends FormRequest
 {

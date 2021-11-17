@@ -17,8 +17,10 @@ class MovieController extends Controller
         // }
         
         return view('home', [
-            'RandomMovie' => Movie::inRandomOrder()->first(),
-            'films' => Movie::all()
+            $rand = Movie::inRandomOrder()->first(),
+            'RandomMovie' => $rand,
+            'films' => Movie::all(),
+            'relQuote' => $rand->quote->random()  // ამ ცვლადში ვაქცევთ რენდომად წამოღებული ფილმის რენდომ ციტატას რო ბლეიდში ერთი ფილმის ორი ციტატის მონაცემები არ აირიოს ერთმანეთში
             
         ])->with('quote');
     }
