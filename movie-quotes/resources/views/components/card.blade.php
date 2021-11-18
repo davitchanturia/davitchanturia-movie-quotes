@@ -1,7 +1,7 @@
 @props(['title', 'foto'])
 
 <div class="bg-white mt-7 pb-4 rounded-lg">
-    <img class="w-full h-52 rounded-t-lg"
+    <img class="w-full h-52 rounded-t-lg object-cover"
      src="{{$foto}}"
     >
 

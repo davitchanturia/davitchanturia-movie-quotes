@@ -23,29 +23,28 @@ Route::get('/{RandomMovie:slug}', [MovieController::class, 'show'])->name('list'
 
 
 // login form only for guest
-Route::middleware('guest')->group(function () {
-    Route::get('admin/login', [SessionController::class, 'ShowLogin'])->name('admin.login');  // login page
-});
+Route::get('admin/login', [SessionController::class, 'ShowLogin'])->name('admin.login')->middleware('guest');  // login page
+
 
 //admin
-Route::middleware('auth')->group(function () {
-    Route::get('/admin/movie', [AdminController::class, 'index'])->name('admin.movies');  // ფილმების დაშბორდი
-    Route::get('/admin/quote', [AdminController::class, 'QuoteIndex'])->name('admin.quotes');  //ციტატების დაშბორდი
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    Route::group(['prefix' => 'movie'], function () {
+        Route::get('', [AdminController::class, 'index'])->name('admin.movies');  // ფილმების დაშბორდი
+        Route::get('create', [AdminController::class, 'create'])->name('movie.create'); // ფილიმის დასამატებელი ფორმის გამოტანა
+        Route::post('', [AdminController::class, 'store'])->name('movie.store');  // ფილმის დამატება
+        Route::delete('{movie}', [AdminController::class, 'MovieDestroy'])->name('movie.delete');  //ფილმის წაშლა
+        Route::get('edit/{movie}', [AdminController::class, 'MovieEdit'])->name('movie.edit');  //ფილმის დაედითება
+        Route::patch('update/{movie}', [AdminController::class, 'MovieUpdate'])->name('movie.update');  // ფილმის განახლება
+    });
 
-    Route::get('/admin/movie/create', [AdminController::class, 'create'])->name('movie.create'); // ფილიმის დასამატებელი ფორმის გამოტანა
-    Route::post('/admin/movie', [AdminController::class, 'store'])->name('movie.store');  // ფილმის დამატება
-
-    Route::get('/admin/quote/create', [AdminController::class, 'QuoteCreate'])->name('quote.create');  //ციტატების დასამატებელი ფორის გამოტანა
-    Route::post('/admin/quote/create', [AdminController::class, 'StoreQuote'])->name('quote.store');  //ციტატის დამატება
-
-    Route::delete('admin/movie/{movie}', [AdminController::class, 'MovieDestroy'])->name('movie.delete');  //ფილმის წაშლა
-    Route::delete('admin/quote/{quote}', [AdminController::class, 'QuoteDestroy'])->name('quote.delete');  //ციტატის წაშლა
-
-    Route::get('admin/movie/edit/{movie}', [AdminController::class, 'MovieEdit'])->name('movie.edit');  //ფილმის დაედითება
-    Route::get('admin/quote/edit/{quote}', [AdminController::class, 'QuoteEdit'])->name('quote.edit'); //ციტატის დაედითება
-
-    Route::patch('admin/movie/update/{movie}', [AdminController::class, 'MovieUpdate'])->name('movie.update');  // ფილმის განახლება
-    Route::patch('admin/quote/update/{quote}', [AdminController::class, 'QuoteUpdate'])->name('quote.update');  //ციტატის განახლება
+    Route::group(['prefix' => 'quote'], function () {
+        Route::get('', [AdminController::class, 'QuoteIndex'])->name('admin.quotes');  //ციტატების დაშბორდი
+        Route::get('create', [AdminController::class, 'QuoteCreate'])->name('quote.create');  //ციტატების დასამატებელი ფორის გამოტანა
+        Route::post('create', [AdminController::class, 'StoreQuote'])->name('quote.store');  //ციტატის დამატება
+        Route::delete('{quote}', [AdminController::class, 'QuoteDestroy'])->name('quote.delete');  //ციტატის წაშლა
+        Route::get('edit/{quote}', [AdminController::class, 'QuoteEdit'])->name('quote.edit'); //ციტატის დაედითება
+        Route::patch('update/{quote}', [AdminController::class, 'QuoteUpdate'])->name('quote.update');  //ციტატის განახლება
+    });
 });
 
 
