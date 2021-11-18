@@ -27,6 +27,14 @@
                   <x-adminpanel.nav-item :link="route('quote.create')">
                     New Quote
                   </x-adminpanel.nav-item>
+
+
+                  <form action="{{route('session.logout')}}" method="post" >
+                    @csrf
+                    
+                    <button type="submit" class="text-white px-2 mt-6">Log Out</button>
+                  </form>
+                  
                  
                 </nav>
       
