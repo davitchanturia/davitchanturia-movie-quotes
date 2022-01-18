@@ -79,14 +79,6 @@ class AdminController extends Controller
     {
         $quote->delete();
 
-        // $movie = DB::table('movies')->where('id', $quote->movie_id);
-
-        
-
-        // if ($movie->count = 1) {
-        //     $movie->delete();
-        // }
-        
         return redirect(route('admin.quotes'));
     }
 
@@ -129,5 +121,3 @@ class AdminController extends Controller
         return redirect(route('admin.quotes'));
     }
 }
-
-//

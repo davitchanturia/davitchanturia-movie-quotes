@@ -11,10 +11,6 @@ class MovieController extends Controller
 {
     public function index()
     {
-        // dd(request('change_language'));
-        // if (in_array(request('change_language'), Config::get('app.available_locales'))) {
-        //     Session::put('applocale', request('change_language'));
-        // }
         return view('home', [
             $rand = Movie::inRandomOrder()->first(),
             'RandomMovie' => $rand,

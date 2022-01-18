@@ -24,16 +24,6 @@ class SessionController extends Controller
             'password' => 'required'
         ]);
         
-        // $user = User::where('email', request()->email)->first();
-       
-        // if ($user) {
-        //     if (request()->password === $user->password) {
-        //         request()->session()->put('logged', $user->id);
-
-        //         return redirect(route('admin.movies'));
-        //     }
-        // }
-
         // dd($attributes);
         if (Auth::attempt($attributes)) {
             session()->put('success', 'welcome');

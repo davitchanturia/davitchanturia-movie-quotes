@@ -5,10 +5,6 @@
     @if (count(config('app.available_locales')) > 1 )
     
         @foreach (Config::get('app.available_locales') as $lang )
-        
-            {{-- <x-circle :link="route('language.switch', [$lang])"> 
-               {{$lang}} 
-            </x-circle>  --}}
 
             <x-circle link="/?change_language={{$lang}}"> 
                 {{$lang}} 
