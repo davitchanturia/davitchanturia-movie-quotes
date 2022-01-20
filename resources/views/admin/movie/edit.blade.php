@@ -15,9 +15,6 @@
                 <x-form.label title="name[{{$item }}]" />
                 <x-form.input name="name[{{ $item }}]" :value="$movie->getTranslation('name', $item)"/>
               @endforeach
-
-              <x-form.label title="slug" />
-              <x-form.input name="slug" :value="$movie->slug"/>
               
               <x-form.button> update </x-form.button>
           </form>

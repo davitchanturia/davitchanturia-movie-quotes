@@ -23,15 +23,11 @@ class StoreMovieRequest extends FormRequest
      *
      * @return array
      */
-    public function rules(?Movie $movie = null)
-    {
-
-        //parameter is null but if we pass somethin x parameter becames x
-        $movie ??= new Movie();
-        
+    public function rules()
+    {          
         $rules = [
-            'name' => ['required'],
-            'slug'           => $movie->exists() ? ['required'] : ['required', Rule::unique('movies', 'slug')],
+            'name'           => ['required'],
+            'slug'           => ['required', Rule::unique('movies', 'slug')],
         ];
 
         foreach (config('app.available_locales') as $locale) {
