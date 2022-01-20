@@ -15,7 +15,7 @@ class MovieController extends Controller
             $rand = Movie::inRandomOrder()->first(),
             'RandomMovie' => $rand,
             'films' => Movie::all(),
-            'relQuote' => $rand->quote->random()  // ამ ცვლადში ვაქცევთ რენდომად წამოღებული ფილმის რენდომ ციტატას რო ბლეიდში ერთი ფილმის ორი ციტატის მონაცემები არ აირიოს ერთმანეთში
+            'relQuote' => $rand->quote->random()  // random quote for certain movie
             
         ])->with('quote');
     }

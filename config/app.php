@@ -2,15 +2,6 @@
 
 return [
 
-      //languages
-
-    //   'languages' => [
-    //     'en' => 'English',
-    //     'ka' => 'Georgian'
-    // ],
-
-
-
     /*
     |--------------------------------------------------------------------------
     | Application Name

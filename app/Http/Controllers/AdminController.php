@@ -12,7 +12,6 @@ use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
-    // ფილმების დაშბორდი
     public function index()
     {
         return view('admin.movie.index', [
@@ -20,7 +19,6 @@ class AdminController extends Controller
         ]);
     }
     
-    // ციტატების დაშბოროდი
     public function QuoteIndex()
     {
         return view('admin.quote.index', [
@@ -28,19 +26,16 @@ class AdminController extends Controller
         ]);
     }
     
-    //ფილმის დასამატებელი ფორმა
     public function create()
     {
         return view('admin.movie.create');
     }
 
-    // ციტატის დასამატებელი ფორმა
     public function QuoteCreate()
     {
         return view('admin.quote.create');
     }
 
-    //ფილმის დამატება ბაზაში
     public function store(StoreMovieRequest $request)
     {
         $attributes = $request->validated();
@@ -50,7 +45,6 @@ class AdminController extends Controller
         return redirect(route('admin.movies'));
     }
 
-    //ციტატის დამატება ბაზაში
     public function StoreQuote(StoreQuoteRequest $request)
     {
         $attr = $request->validated();
@@ -61,7 +55,6 @@ class AdminController extends Controller
         return redirect(route('admin.quotes'));
     }
 
-    //ფილმის წაშლა
     public function MovieDestroy(Movie $movie)
     {
         $movie->delete();
@@ -74,7 +67,6 @@ class AdminController extends Controller
         return redirect(route('admin.movies'));
     }
 
-    //ციტატის წაშლა
     public function QuoteDestroy(Quote $quote)
     {
         $quote->delete();
@@ -82,19 +74,16 @@ class AdminController extends Controller
         return redirect(route('admin.quotes'));
     }
 
-    //ფილმის დაედითება
     public function MovieEdit(Movie $movie)
     {
         return view('admin.movie.edit', ['movie' => $movie]);
     }
 
-    //ციტატის დაედითება
     public function QuoteEdit(Quote $quote)
     {
         return view('admin.quote.edit', ['quote' => $quote]);
     }
 
-    //ფილმის განახლება
     public function MovieUpdate(StoreMovieRequest $request, Movie $movie)
     {
         $attributes = $request->validated();
@@ -105,7 +94,6 @@ class AdminController extends Controller
         return redirect(route('admin.movies'));
     }
 
-    // ციტატის განახლება
     public function QuoteUpdate(StoreQuoteRequest $request, Quote $quote)
     {
         // dd('sadads');

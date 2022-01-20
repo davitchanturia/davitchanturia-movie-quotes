@@ -27,7 +27,6 @@ class StoreQuoteRequest extends FormRequest
      */
     public function rules(?Quote $quote = null, Request $request)
     {
-        // dd('sddas');
         $quote ??= new Quote();
 
         $rules = [
@@ -35,12 +34,11 @@ class StoreQuoteRequest extends FormRequest
             'thumbnail'      => $quote->exists() ? ['mimes:jpeg,png,jpg,gif,svg'] : ['required', 'mimes:jpeg,png,jpg,gif,svg'],
             'movie_id'  =>   []
         ];
-        // dd($request);
 
         foreach (config('app.available_locales') as $locale) {
             $rules['name.' .$locale ] = 'string';
         }
-        // ddd($rules);
+
         return $rules;
     }
 }

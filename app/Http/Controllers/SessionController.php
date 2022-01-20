@@ -10,13 +10,11 @@ use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
-    // ლოგინ ფეიჯი
     public function ShowLogin()
     {
         return view('admin.login.login');
     }
 
-    //  დალოგინება
     public function store()
     {
         $attributes = Request()->validate([
@@ -24,7 +22,6 @@ class SessionController extends Controller
             'password' => 'required'
         ]);
         
-        // dd($attributes);
         if (Auth::attempt($attributes)) {
             session()->put('success', 'welcome');
             

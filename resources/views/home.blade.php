@@ -15,10 +15,8 @@
 
         @endphp
 
-         {{-- if პირობით ვამოწმებთ თუ არის ბაზაში ერთი ფილმი მაინც --}}
         @if ($films->count())
    
-        {{-- @dd($RandomMovie->quote->random()) --}}
         <div class="w-2/4 h-screen m-auto justify-center align-middle">
                 <div id="card" class="w-3/5 m-auto pt-32">
                     

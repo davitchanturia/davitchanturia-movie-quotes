@@ -26,9 +26,7 @@ class StoreMovieRequest extends FormRequest
     public function rules(?Movie $movie = null)
     {
 
-        //პარამეტრად ვატანთ ნოლს მაგრამ თუ გადავცემთ პარამეტრს მეთოდის გამოძახებისას
-        //მიენიჭება გადაცემული მნიშვნელობა მაგრამ თუ არ გადავცემთ შექმნის ახალ პოსტს
-
+        //parameter is null but if we pass somethin x parameter becames x
         $movie ??= new Movie();
         
         $rules = [

@@ -62,7 +62,7 @@ class newAdmin extends Command
                 $this->error('Password and Confirm password do not match');
             }
 
-            //თავიდან შეყავს მონაცემები
+            // starts filling info from the beggining
             $details['password'] = $this->secret('Password');
             $details['confirm_password'] = $this->secret('Confirm password');
         }
@@ -71,19 +71,19 @@ class newAdmin extends Command
         return $details;
     }
 
-    // ამოწმებს პაროლის ვალიდურობას
+    // checks if password is valid
     private function isValidPassword(string $password, string $confirmPassword) : bool
     {
         return $this->length($password) && $this->match($password, $confirmPassword);
     }
 
-    //ამოწმებს პაროლის სიგრძეს
+    // checks length of pass
     private function length(string $password) : bool
     {
         return strlen($password) > 8;
     }
 
-    //ამოწმებს პაროლის და განმეორებითი პაროლის დამთხვევას
+    // cheks if password and confrim password matches
     private function match(string $password, string $confirmPassword) : bool
     {
         return $password === $confirmPassword;

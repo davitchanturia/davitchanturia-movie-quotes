@@ -26,12 +26,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Gate::define('admin', function (User $user) {
-        //     return $user->email === 'datochanturia@redberry.ge';
-        // });
-
-        // Blade::if('admin', function () {
-        //     return request()->user()->can('admin');
-        // });
     }
 }
