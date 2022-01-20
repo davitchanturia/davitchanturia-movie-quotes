@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,12 +16,9 @@ class SessionController extends Controller
         return view('admin.login.login');
     }
 
-    public function store()
+    public function store(LoginRequest $request)
     {
-        $attributes = Request()->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
+        $attributes = $request->validated();
         
         if (Auth::attempt($attributes)) {
             session()->put('success', 'welcome');

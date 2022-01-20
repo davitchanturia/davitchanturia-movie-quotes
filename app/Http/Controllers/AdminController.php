@@ -96,7 +96,6 @@ class AdminController extends Controller
 
     public function QuoteUpdate(StoreQuoteRequest $request, Quote $quote)
     {
-        // dd('sadads');
         $attrs = $request->validated();
 
         if (isset($attrs['thumbnail'])) {
