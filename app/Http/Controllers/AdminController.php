@@ -33,7 +33,9 @@ class AdminController extends Controller
 
     public function QuoteCreate()
     {
-        return view('admin.quote.create');
+        return view('admin.quote.create', [
+            'films' => Movie::all()
+        ]);
     }
 
     public function store(StoreMovieRequest $request)

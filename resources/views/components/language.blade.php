@@ -6,7 +6,8 @@
     
         @foreach (Config::get('app.available_locales') as $lang )
 
-            <x-circle link="/?change_language={{$lang}}"> 
+            <x-circle 
+            link="{{ route('homepage', ['change_language='.$lang]) }}"> 
                 {{$lang}} 
             </x-circle> 
 

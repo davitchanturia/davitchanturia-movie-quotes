@@ -7,13 +7,6 @@
                 <h1 class="inline text-white px-4 ">Logged in admin:  {{ auth()->user()->name}} </h1>
             </div>
         @endauth
-       
-
-
-        @php
-            $local = App::getLocale()
-
-        @endphp
 
         @if ($films->count())
    

@@ -16,8 +16,8 @@ class MovieController extends Controller
             $rand = Movie::inRandomOrder()->first(),
             'RandomMovie' => $rand,
             'films' => Movie::all(),
-            'relQuote' => $rand->quote->random()  // random quote for certain movie
-            
+            'relQuote' => $rand->quote->random(),  // random quote for certain movie
+            'local' => App::getLocale()
         ])->with('quote');
     }
 

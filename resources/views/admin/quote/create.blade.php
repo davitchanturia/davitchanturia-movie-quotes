@@ -23,10 +23,6 @@
                 <x-form.label title="movie" />
 
                 <select name="movie_id" id="movie" class="max-w-sm">
-                    
-                    @php
-                       $films = \App\Models\Movie::all()
-                    @endphp
                                        
                     @foreach ($films as $film)
                         <option value="{{ $film->id }}" 
