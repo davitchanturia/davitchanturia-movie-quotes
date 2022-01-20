@@ -59,9 +59,9 @@ class AdminController extends Controller
     {
         $movie->delete();
         
-        $a = DB::table('quotes')->where('movie_id', $movie->id);
+        $quote = DB::table('quotes')->where('movie_id', $movie->id);
 
-        $a->delete();
+        $quote->delete();
         
 
         return redirect(route('admin.movies'));
