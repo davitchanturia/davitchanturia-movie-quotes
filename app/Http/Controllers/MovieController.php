@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 
@@ -25,6 +26,7 @@ class MovieController extends Controller
     {
         return view('list', [
             'RandomMovie' => $RandomMovie,
+            'local' => App::getLocale()
         ]);
     }
 }

@@ -100,7 +100,7 @@ class AdminController extends Controller
         $attrs = $request->validated();
 
         if (isset($attrs['thumbnail'])) {
-            $attrs['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+            $attrs['thumbnail'] = request()->file('thumbnail')->store('public/thumbnails');
         }
 
         $quote->update($attrs);

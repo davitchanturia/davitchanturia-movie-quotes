@@ -1,10 +1,6 @@
 <x-layout>
 
     <section>
-        
-        @php
-            $local = App::getLocale()
-        @endphp
 
         <div class="mt-10 ml-10">
             <a href="{{ route('homepage') }}" class="text-white capitalize ">go back</a>
@@ -18,9 +14,7 @@
                         :foto="asset('storage/'. $item->thumbnail)" />
             @endforeach
             
-          
         </div>
-
 
         <x-language />
 
