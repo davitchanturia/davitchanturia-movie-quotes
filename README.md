@@ -2,7 +2,7 @@
 
 Welcome to the Movie quotes web-aplication, it is a place where you can see posts about movies which contains relevat quotes with pictures.
 
-<img src="public/storage/bidzo.png"/>
+<img src="public/images/bidzo.png"/>
 
 ## Table of Contents
 
