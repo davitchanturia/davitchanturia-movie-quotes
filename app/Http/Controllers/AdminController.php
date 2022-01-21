@@ -73,6 +73,17 @@ class AdminController extends Controller
     {
         $quote->delete();
 
+        //relevant movie
+        $movie = DB::table('movies')->where('id', $quote->movie->id)->first();
+
+        //all quotes of this movie
+        $allQuotes = DB::table('quotes')->where('movie_id', $movie->id)->get();
+       
+        //check if this quote is last in db
+        if(count($allQuotes) == 0){
+           $quote->movie->delete();
+        }
+
         return redirect(route('admin.quotes'));
     }
 
