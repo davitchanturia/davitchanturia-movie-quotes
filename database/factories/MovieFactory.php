@@ -7,20 +7,18 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MovieFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     *
-     */
+	/**
+	 * Define the model's default state.
+	 *
+	 * @return array
+	 */
+	protected $model = Movie::class;
 
-    protected $model = Movie::class;
-
-    public function definition()
-    {
-        return [
-            'name' => $this->faker->sentence(),
-            'slug' => $this->faker->slug(),
-        ];
-    }
+	public function definition()
+	{
+		return [
+			'name' => $this->faker->sentence(),
+			'slug' => $this->faker->slug(),
+		];
+	}
 }

@@ -8,15 +8,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Quote extends Model
 {
-    use HasFactory;
-    use HasTranslations;
+	use HasFactory;
 
-    protected $guarded = [];
+	use HasTranslations;
 
-    public $translatable = ['name'];
+	protected $guarded = [];
 
-    public function movie()
-    {
-        return $this->belongsTo(Movie::class);
-    }
+	public $translatable = ['name'];
+
+	public function movie()
+	{
+		return $this->belongsTo(Movie::class);
+	}
 }

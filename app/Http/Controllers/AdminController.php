@@ -6,118 +6,115 @@ use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\StoreQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
-    public function index()
-    {
-        return view('admin.movie.index', [
-            'movie' => Movie::get()
-        ]);
-    }
-    
-    public function QuoteIndex()
-    {
-        return view('admin.quote.index', [
-            'quote' => Quote::get()
-        ]);
-    }
-    
-    public function create()
-    {
-        return view('admin.movie.create');
-    }
+	public function index()
+	{
+		return view('admin.movie.index', [
+			'movie' => Movie::get(),
+		]);
+	}
 
-    public function QuoteCreate()
-    {
-        return view('admin.quote.create', [
-            'films' => Movie::all()
-        ]);
-    }
+	public function QuoteIndex()
+	{
+		return view('admin.quote.index', [
+			'quote' => Quote::get(),
+		]);
+	}
 
-    public function store(StoreMovieRequest $request)
-    {
-        $attributes = $request->validated();
+	public function create()
+	{
+		return view('admin.movie.create');
+	}
 
-        Movie::create($attributes);
-        
-        return redirect(route('admin.movies'));
-    }
+	public function QuoteCreate()
+	{
+		return view('admin.quote.create', [
+			'films' => Movie::all(),
+		]);
+	}
 
-    public function StoreQuote(StoreQuoteRequest $request)
-    {
-        $attr = $request->validated();
+	public function store(StoreMovieRequest $request)
+	{
+		$attributes = $request->validated();
 
-        $attr['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
-        Quote::create($attr);
-        
-        return redirect(route('admin.quotes'));
-    }
+		Movie::create($attributes);
 
-    public function MovieDestroy(Movie $movie)
-    {
-        $movie->delete();
-        
-        $quote = DB::table('quotes')->where('movie_id', $movie->id);
+		return redirect(route('admin.movies'));
+	}
 
-        $quote->delete();
-        
+	public function StoreQuote(StoreQuoteRequest $request)
+	{
+		$attr = $request->validated();
 
-        return redirect(route('admin.movies'));
-    }
+		$attr['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+		Quote::create($attr);
 
-    public function QuoteDestroy(Quote $quote)
-    {
-        $quote->delete();
+		return redirect(route('admin.quotes'));
+	}
 
-        //relevant movie
-        $movie = DB::table('movies')->where('id', $quote->movie->id)->first();
+	public function MovieDestroy(Movie $movie)
+	{
+		$movie->delete();
 
-        //all quotes of this movie
-        $allQuotes = DB::table('quotes')->where('movie_id', $movie->id)->get();
-       
-        //check if this quote is last in db
-        if(count($allQuotes) == 0){
-           $quote->movie->delete();
-        }
+		$quote = DB::table('quotes')->where('movie_id', $movie->id);
 
-        return redirect(route('admin.quotes'));
-    }
+		$quote->delete();
 
-    public function MovieEdit(Movie $movie)
-    {
-        return view('admin.movie.edit', ['movie' => $movie]);
-    }
+		return redirect(route('admin.movies'));
+	}
 
-    public function QuoteEdit(Quote $quote)
-    {
-        return view('admin.quote.edit', ['quote' => $quote]);
-    }
+	public function QuoteDestroy(Quote $quote)
+	{
+		$quote->delete();
 
-    public function MovieUpdate(StoreMovieRequest $request, Movie $movie)
-    {
-        $attributes = $request->validated();
+		//relevant movie
+		$movie = DB::table('movies')->where('id', $quote->movie->id)->first();
 
-        $movie->update($attributes);
-        
-        
-        return redirect(route('admin.movies'));
-    }
+		//all quotes of this movie
+		$allQuotes = DB::table('quotes')->where('movie_id', $movie->id)->get();
 
-    public function QuoteUpdate(StoreQuoteRequest $request, Quote $quote)
-    {
-        $attrs = $request->validated();
+		//check if this quote is last in db
+		if (count($allQuotes) == 0)
+		{
+			$quote->movie->delete();
+		}
 
-        if (isset($attrs['thumbnail'])) {
-            $attrs['thumbnail'] = request()->file('thumbnail')->store('public/thumbnails');
-        }
+		return redirect(route('admin.quotes'));
+	}
 
-        $quote->update($attrs);
-        
-        
-        return redirect(route('admin.quotes'));
-    }
+	public function MovieEdit(Movie $movie)
+	{
+		return view('admin.movie.edit', ['movie' => $movie]);
+	}
+
+	public function QuoteEdit(Quote $quote)
+	{
+		return view('admin.quote.edit', ['quote' => $quote]);
+	}
+
+	public function MovieUpdate(StoreMovieRequest $request, Movie $movie)
+	{
+		$attributes = $request->validated();
+
+		$movie->update($attributes);
+
+		return redirect(route('admin.movies'));
+	}
+
+	public function QuoteUpdate(StoreQuoteRequest $request, Quote $quote)
+	{
+		$attrs = $request->validated();
+
+		if (isset($attrs['thumbnail']))
+		{
+			$attrs['thumbnail'] = request()->file('thumbnail')->store('public/thumbnails');
+		}
+
+		$quote->update($attrs);
+
+		return redirect(route('admin.quotes'));
+	}
 }

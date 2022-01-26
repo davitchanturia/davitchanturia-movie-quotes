@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class QuoteFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
-        return [
-            'movie_id' => Movie::factory(),
-            'name' => $this->faker->sentence(),
+	/**
+	 * Define the model's default state.
+	 *
+	 * @return array
+	 */
+	public function definition()
+	{
+		return [
+			'movie_id'    => Movie::factory(),
+			'name'        => $this->faker->sentence(),
 			'thumbnail'   => $this->faker->image('public/storage', 640, 480, null, false),
-        ];
-    }
+		];
+	}
 }
