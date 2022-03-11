@@ -23,6 +23,13 @@ class AuthController extends Controller
 		return response(404);
 	}
 
+	public function logout(Request $request)
+	{
+		Auth::logout();
+
+		return response(200);
+	}
+
 	public function checkAuth()
 	{
 		if (Auth::check())
