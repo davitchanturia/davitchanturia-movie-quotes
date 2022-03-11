@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\ApiControllers\ContentController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\ApiControllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiControllers\ContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-	return $request->user();
-});
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('logged-in', [AuthController::class, 'checkAuth']);
 
 Route::get('/random-movie', [ContentController::class, 'index'])->name('random.movie');
+
+Route::get('/all-data', [ContentController::class, 'allData'])->name('all.data')->middleware('auth:sanctum');

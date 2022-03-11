@@ -12,16 +12,20 @@ class ContentController extends Controller
 	{
 		$movie = Movie::inRandomOrder()->first();
 		$quote = $movie->quote->random();
-		$quotes = Quote::with('movie')->get();
 		$allMovieQuotes = Quote::where('movie_id', $movie->id)->with('movie')->get();
-		$allMovies = Movie::all();
 
 		return [
 			'movie'     => $movie,
 			'quote'     => $quote,
-			'quotes'    => $quotes,
 			'allQuotes' => $allMovieQuotes,
-			'allMovies' => $allMovies,
 		];
+	}
+
+	public function allData()
+	{
+		$allMovies = Movie::all();
+		$quotes = Quote::with('movie')->get();
+
+		return response()->json(['allMovies' => $allMovies, 'quotes'    => $quotes]);
 	}
 }
