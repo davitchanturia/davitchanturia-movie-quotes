@@ -28,3 +28,4 @@ Route::get('/all-data', [ContentController::class, 'allData'])->name('all.data')
 //CRUD
 Route::post('/add-movie', [MovieController::class, 'create'])->name('create.movie');
 Route::post('/edit-movie', [MovieController::class, 'edit'])->name('edit.movie');
+Route::delete('/delete-movie/{id}', [MovieController::class, 'delete'])->name('delete.movie');
