@@ -32,3 +32,4 @@ Route::post('/edit-movie', [MovieController::class, 'edit'])->name('edit.movie')
 Route::delete('/delete-movie/{id}', [MovieController::class, 'delete'])->name('delete.movie');
 
 Route::post('/add-quote', [QuoteController::class, 'create'])->name('create.quote');
+Route::post('/edit-quote', [QuoteController::class, 'edit'])->name('edit.quote');
