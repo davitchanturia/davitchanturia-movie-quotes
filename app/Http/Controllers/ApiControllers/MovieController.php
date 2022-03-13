@@ -6,7 +6,6 @@ use App\Models\Movie;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ApiRequests\editMovieRequest;
 use App\Http\Requests\ApiRequests\StoreMovieRequest;
-use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
@@ -38,7 +37,7 @@ class MovieController extends Controller
 		return response(200);
 	}
 
-	public function delete(Request $request, $id)
+	public function delete($id)
 	{
 		$movie = Movie::where('id', $id)->first();
 

@@ -52,4 +52,13 @@ class QuoteController extends Controller
 
 		return response(200);
 	}
+
+	public function delete($id)
+	{
+		$quote = Quote::where('id', $id)->first();
+
+		$quote->delete();
+
+		return response(200);
+	}
 }
