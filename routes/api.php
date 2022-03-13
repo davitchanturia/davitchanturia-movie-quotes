@@ -4,6 +4,7 @@ use App\Http\Controllers\ApiControllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiControllers\ContentController;
 use App\Http\Controllers\ApiControllers\MovieController;
+use App\Http\Controllers\ApiControllers\QuoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,5 @@ Route::get('/all-data', [ContentController::class, 'allData'])->name('all.data')
 Route::post('/add-movie', [MovieController::class, 'create'])->name('create.movie');
 Route::post('/edit-movie', [MovieController::class, 'edit'])->name('edit.movie');
 Route::delete('/delete-movie/{id}', [MovieController::class, 'delete'])->name('delete.movie');
+
+Route::post('/add-quote', [QuoteController::class, 'create'])->name('create.quote');
