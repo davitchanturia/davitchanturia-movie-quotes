@@ -13,6 +13,14 @@ class MovieController extends Controller
 	{
 		$attributes = $request->validated();
 
+		//check if movie exists
+		$exists = Movie::where('name->en', $attributes['englishName'])->orWhere('name->ka', $attributes['georgianName'])->exists();
+
+		if ($exists)
+		{
+			return response()->json(['status' => '409', 'message' => 'This data already exists!']);
+		}
+
 		$name = ['en' => $attributes['englishName'], 'ka' => $attributes['georgianName']];
 
 		$updatedData = ['name' => $name, 'slug' => $attributes['slug']];

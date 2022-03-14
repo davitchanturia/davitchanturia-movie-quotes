@@ -13,6 +13,15 @@ class QuoteController extends Controller
 	public function create(StoreQuoteRequest $request)
 	{
 		$attributes = $request->validated();
+		// dd($attributes);
+
+		//check if movie exists
+		$exists = Quote::where('name->en', $attributes['englishName'])->orWhere('name->ka', $attributes['georgianName'])->exists();
+
+		if ($exists)
+		{
+			return response()->json(['status' => '409', 'message' => 'This data already exists!']);
+		}
 
 		$name = ['en' => $attributes['englishName'], 'ka' => $attributes['georgianName']];
 
