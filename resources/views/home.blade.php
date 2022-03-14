@@ -12,7 +12,6 @@
    
         <div class="w-2/4 h-screen m-auto justify-center align-middle">
                 <div id="card" class="w-3/5 m-auto pt-32">
-                    
                     <img class="w-full h-64 rounded-md object-cover" alt=""
                         src="{{ asset('storage/'. $relQuote->thumbnail) }}"
                     >

@@ -13,7 +13,6 @@ class QuoteController extends Controller
 	public function create(StoreQuoteRequest $request)
 	{
 		$attributes = $request->validated();
-		// dd($attributes);
 
 		//check if movie exists
 		$exists = Quote::where('name->en', $attributes['englishName'])->orWhere('name->ka', $attributes['georgianName'])->exists();
@@ -30,9 +29,7 @@ class QuoteController extends Controller
 		// save in storage
 		$attributes['thumbnail'] = $attributes['thumbnail']->store('thumbnails');
 
-		$thumbnail = $request->file('thumbnail')->getClientOriginalName();
-
-		$updatedData = ['name' => $name, 'thumbnail' => 'thumbnails/' . $thumbnail, 'movie_id' => $movie->id];
+		$updatedData = ['name' => $name, 'thumbnail' => $attributes['thumbnail'], 'movie_id' => $movie->id];
 
 		Quote::create($updatedData);
 
@@ -53,9 +50,7 @@ class QuoteController extends Controller
 		// save in storage
 		$attributes['thumbnail'] = $attributes['thumbnail']->store('thumbnails');
 
-		$thumbnail = $request->file('thumbnail')->getClientOriginalName();
-
-		$updatedData = ['name' => $name, 'thumbnail' => 'thumbnails/' . $thumbnail, 'movie_id' => $relevantMovie->id];
+		$updatedData = ['name' => $name, 'thumbnail' => $attributes['thumbnail'], 'movie_id' => $relevantMovie->id];
 
 		$quote->update($updatedData);
 
