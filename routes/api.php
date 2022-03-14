@@ -27,10 +27,10 @@ Route::get('/random-movie', [ContentController::class, 'index'])->name('random.m
 Route::get('/all-data', [ContentController::class, 'allData'])->name('all.data')->middleware('auth:sanctum');
 
 //CRUD
-Route::post('/add-movie', [MovieController::class, 'create'])->name('create.movie');
-Route::post('/edit-movie', [MovieController::class, 'edit'])->name('edit.movie');
-Route::delete('/delete-movie/{id}', [MovieController::class, 'delete'])->name('delete.movie');
+Route::post('/add-movie', [MovieController::class, 'create'])->name('create.movie')->middleware('auth:sanctum');
+Route::post('/edit-movie', [MovieController::class, 'edit'])->name('edit.movie')->middleware('auth:sanctum');
+Route::delete('/delete-movie/{id}', [MovieController::class, 'delete'])->name('delete.movie')->middleware('auth:sanctum');
 
-Route::post('/add-quote', [QuoteController::class, 'create'])->name('create.quote');
-Route::post('/edit-quote', [QuoteController::class, 'edit'])->name('edit.quote');
-Route::delete('delete-quote/{id}', [QuoteController::class, 'delete'])->name('delete.quote');
+Route::post('/add-quote', [QuoteController::class, 'create'])->name('create.quote')->middleware('auth:sanctum');
+Route::post('/edit-quote', [QuoteController::class, 'edit'])->name('edit.quote')->middleware('auth:sanctum');
+Route::delete('delete-quote/{id}', [QuoteController::class, 'delete'])->name('delete.quote')->middleware('auth:sanctum');
