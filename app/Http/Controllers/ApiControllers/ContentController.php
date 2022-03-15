@@ -10,15 +10,29 @@ class ContentController extends Controller
 {
 	public function index()
 	{
-		$movie = Movie::inRandomOrder()->first();
+		$movieCount = Movie::all()->count() > 0;
+
+		if (!$movieCount)
+		{
+			return response()->json(['message' => 'No data in Database, try another time'], 403);
+		}
+
+		$movie = Movie::inRandomOrder()->withCount('quote')->first();
+
+		while ($movie->quote_count == 0)
+		{
+			$movie = Movie::inRandomOrder()->withCount('quote')->first();
+		}
+
 		$quote = $movie->quote->random();
+
 		$allMovieQuotes = Quote::where('movie_id', $movie->id)->with('movie')->get();
 
-		return [
+		return response()->json([
 			'movie'     => $movie,
 			'quote'     => $quote,
 			'allQuotes' => $allMovieQuotes,
-		];
+		]);
 	}
 
 	public function allData()
