@@ -11,8 +11,9 @@ class ContentController extends Controller
 	public function index()
 	{
 		$movieCount = Movie::all()->count() > 0;
+		$quoteCount = Quote::all()->count() > 0;
 
-		if (!$movieCount)
+		if (!$movieCount || !$quoteCount)
 		{
 			return response()->json(['message' => 'No data in Database, try another time'], 403);
 		}
